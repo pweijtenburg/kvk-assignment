@@ -1,27 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import CssBaseline from '@mui/material/CssBaseline';
+import {ThemeProvider} from "styled-components";
+import theme from "./theme/theme";
+import './assests/scss/layout.scss'
+
+import App from './pages/App';
+import PageNotFound from './pages/PageNotFound';
+import reportWebVitals from './reportWebVitals';
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Typography} from "@mui/material";
+import Header from "./layout/Header";
+import Page from "./layout/Page";
+import Box from "@mui/material/Box";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+    }, {
+        path: "*",
+        element: <PageNotFound />,
     },
 ]);
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+            <Box className="layout-wrapper">
+                <CssBaseline />
+                <Header>
+                    <Typography className="brand-logo">Kompany</Typography>
+                </Header>
+                <Page>
+                    <RouterProvider router={router} />
+                </Page>
+            </Box>
+        </ThemeProvider>
     </React.StrictMode>
 );
 
