@@ -39,7 +39,7 @@ const DefaultSearchBar = styled(Grid)(({theme}) => ({
 const SearchBar = ({onSearch}: Props) => {
     return (
         <DefaultSearchBar container className="search-input-wrapper" spacing={2}>
-            <Grid item xs={10}>
+            <Grid item xs={8} md={9} lg={10}>
                 <Autocomplete
                     disablePortal
                     id="searchInput"
@@ -48,7 +48,7 @@ const SearchBar = ({onSearch}: Props) => {
                     renderInput={(params) => <TextField {...params} label="Type your query" />}
                 />
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={4} md={3} lg={2}>
                 <Button className="search-action" variant="contained" color="secondary" onClick={onSearch}>
                     <SearchIcon />
                     Search
