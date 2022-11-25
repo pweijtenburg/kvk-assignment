@@ -1,4 +1,4 @@
-import {createTheme} from '@mui/material/styles';
+import {createTheme, responsiveFontSizes} from '@mui/material/styles';
 import shadows, {Shadows} from '@mui/material/styles/shadows';
 
 export interface CustomTheme {
@@ -70,4 +70,4 @@ const theme = createTheme({
     },
 });
 
-export default theme;
+export default responsiveFontSizes(theme);

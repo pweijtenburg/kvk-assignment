@@ -1,7 +1,8 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
+import SearchBar from "../components/CompanySearch/SearchBar";
+import SearchList from "../components/CompanySearch/SearchList";
 
 const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),
@@ -10,17 +11,8 @@ const PageContainer = styled(Container)(({theme}) => ({
 const CompanySearch = () => {
     return (
         <PageContainer>
-            <Grid container spacing={2}>
-                <Grid item xs={9}>
-                    Invoerveld
-                </Grid>
-                <Grid item xs={3}>
-                    Zoeken
-                </Grid>
-                <Grid item xs={12}>
-                    Resultaten
-                </Grid>
-            </Grid>
+            <SearchBar />
+            <SearchList list={['Result 1', 'Result 2', 'Result 3']} />
         </PageContainer>
     );
 }

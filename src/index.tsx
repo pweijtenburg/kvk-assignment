@@ -36,9 +36,7 @@ root.render(
         <ThemeProvider theme={theme}>
             <Box className="layout-wrapper">
                 <CssBaseline />
-                <Header>
-                    <Typography className="brand-logo">Kompany</Typography>
-                </Header>
+                <Header />
                 <Page>
                     <RouterProvider router={router} />
                 </Page>
