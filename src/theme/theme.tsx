@@ -1,4 +1,5 @@
 import {createTheme} from '@mui/material/styles';
+import shadows, {Shadows} from '@mui/material/styles/shadows';
 
 export interface CustomTheme {
     props: Object,
@@ -46,6 +47,7 @@ const theme = createTheme({
             '"Segoe UI Symbol"',
         ].join(','),
     },
+    shadows: shadows.map(() => 'none') as Shadows,
     spacing: 8,
     shape: {
         borderRadius: 4,
