@@ -7,7 +7,7 @@ const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),
 }));
 
-const App = () => {
+const CompanySearch = () => {
     return (
         <PageContainer>
             <Grid container spacing={2}>
@@ -25,4 +25,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default CompanySearch;

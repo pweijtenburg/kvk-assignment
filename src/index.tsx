@@ -5,7 +5,7 @@ import {ThemeProvider} from "styled-components";
 import theme from "./theme/theme";
 import './assests/scss/layout.scss'
 
-import App from './pages/App';
+import CompanySearch from './pages/CompanySearch';
 import PageNotFound from './pages/PageNotFound';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -20,7 +20,7 @@ import Box from "@mui/material/Box";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <CompanySearch />,
     }, {
         path: "*",
         element: <PageNotFound />,
