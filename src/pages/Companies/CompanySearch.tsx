@@ -7,6 +7,7 @@ import {styled} from '@mui/material/styles';
 import SearchBar from "../../components/Companies/SearchBar";
 import SearchList from "../../components/Companies/SearchList";
 import AddCompany from "../../components/Companies/AddCompany"
+import SearchSpinner from "../../components/Companies/SearchSpinner";
 
 const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),
@@ -26,7 +27,7 @@ export default () => {
     return (
         <PageContainer>
             <SearchBar />
-            <SearchList list={companies} />
+            {companies.length ? <SearchList list={companies} /> : <SearchSpinner />}
             <AddCompany saveCompany={saveCompany} />
         </PageContainer>
     );
