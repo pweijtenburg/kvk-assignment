@@ -1,6 +1,6 @@
-import 'styled-components';
 import {Theme} from '@mui/material/styles';
 import {CustomTheme} from "./theme";
+import 'styled-components';
 
 declare module '@mui/material/styles' {
     interface Theme extends CustomTheme {
