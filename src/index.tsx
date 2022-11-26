@@ -19,7 +19,7 @@ root.render(
     <React.StrictMode>
         <Provider store={store}>
             <ThemeProvider theme={theme}>
-                <Box className="layout-wrapper">
+                <Box className="app-layout">
                     <CssBaseline />
                     <Header />
                     <Page>

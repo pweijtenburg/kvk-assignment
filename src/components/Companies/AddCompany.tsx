@@ -1,4 +1,7 @@
 import * as React from "react"
+import {Button, TextField} from "@mui/material";
+import AddCircle from "@mui/icons-material/AddCircle";
+import {ChangeEvent} from "react";
 
 type Props = {
     saveCompany: (company: Company | any) => void
@@ -21,12 +24,15 @@ const AddCompany = ({saveCompany}: Props) => {
 
     return (
         <form onSubmit={addNewHandler} className="new-company-form">
-            <input type="text" id="name" placeholder="Company Name" onChange={inputHandler} />
-            <input type="text" id="streetName" placeholder="e.g. 5th Avenue 2005" onChange={inputHandler} />
-            <input type="text" id="city" placeholder="City" onChange={inputHandler} />
-            <input type="text" id="zipCode" placeholder="Postal code" onChange={inputHandler} />
-            <input type="text" id="logo" placeholder="e.g. https://kompany.nl/our-logo.png" onChange={inputHandler} />
-            <button disabled={!company}>Add Company</button>
+            <TextField required id="name" label="Company Name" onChange={inputHandler} />
+            <TextField id="streetName" label="e.g. 5th Avenue 2005" onChange={inputHandler} />
+            <TextField id="city" label="City" onChange={inputHandler} />
+            <TextField id="zipCode" label="Postal code" onChange={inputHandler} />
+            <TextField id="logo" label="e.g. https://kompany.nl/our-logo.png" onChange={inputHandler} />
+            <Button className="search-action" disabled={!company} variant="contained" color="success" disableElevation>
+                <AddCircle />
+                Add Company
+            </Button>
         </form>
     )
 }

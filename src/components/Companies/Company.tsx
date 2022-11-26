@@ -1,6 +1,8 @@
 import * as React from "react"
 import {Dispatch} from "redux"
 import {useDispatch} from "react-redux"
+import {Button} from "@mui/material";
+import RemoveCircle from "@mui/icons-material/RemoveCircleOutline";
 
 type Props = {
     company: Company
@@ -22,7 +24,10 @@ const Company = ({company, removeCompany}: Props) => {
                 <h1>{company.name}</h1>
                 <p>{company.streetName}, {company.zipCode}, {company.city}</p>
             </div>
-            <button onClick={() => deleteHandler(company)}>Delete</button>
+            <Button className="search-action" variant="outlined" color="error" onClick={()=>deleteHandler(company)} disableElevation>
+                <RemoveCircle />
+                Delete
+            </Button>
         </div>
     )
 }

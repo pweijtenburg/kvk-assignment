@@ -9,9 +9,6 @@ interface Props {
 }
 
 const DefaultSearchBar = styled(Grid)(({theme}) => ({
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    flex: '1',
     '.search-input': {
         'fieldset': {
             border: '2px solid #eee',
@@ -26,10 +23,6 @@ const DefaultSearchBar = styled(Grid)(({theme}) => ({
         }
     },
     '.search-action': {
-        backgroundColor: '#aa418c',
-        fontSize: 'inherit',
-        fontWeight: '400',
-        textTransform: 'initial',
         border: '2px solid #aa418c',
         width: '100%',
         height: '100%',

@@ -32,6 +32,10 @@ const theme = createTheme({
         divider: 'rgba(0,0,0,0.1)',
     },
     typography: {
+        fontWeightLight: 300,
+        fontWeightRegular: 300,
+        fontWeightMedium: 500,
+        fontWeightBold: 700,
         fontFamily: [
             'Poppins',
             '-apple-system',
@@ -45,6 +49,11 @@ const theme = createTheme({
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
         ].join(','),
+        button: {
+            fontWeight: 500,
+            fontSize: 16,
+            textTransform: 'initial',
+        }
     },
     spacing: 8,
     shape: {
