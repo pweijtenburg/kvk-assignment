@@ -1,35 +1,45 @@
 import * as React from "react"
 import {Button, TextField} from "@mui/material";
 import AddCircle from "@mui/icons-material/AddCircle";
-import {ChangeEvent} from "react";
 
 type Props = {
     saveCompany: (company: Company | any) => void
 }
 
 const AddCompany = ({saveCompany}: Props) => {
-    const [company, setCompany] = React.useState<Company | {}>()
+    const [company, setCompany] = React.useState<Company | null>(null)
 
-    const inputHandler = (e: React.FormEvent<HTMLInputElement>) => {
+    const inputHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCompany({
+            id: -1,
+            name: "Unnamed company",
             ...company,
-            [e.currentTarget.id]: e.currentTarget.value,
+            [e.target.id]: e.target.value,
         })
     }
 
-    const addNewHandler = (e: React.FormEvent) => {
+    const submitHandler = (e: React.FormEvent) => {
         e.preventDefault()
         saveCompany(company)
+        setCompany({
+            city: "",
+            id: -1,
+            logo: "",
+            name: "",
+            streetName: "",
+            zipCode: "",
+            createdAt: (new Date).toISOString(),
+        })
     }
 
     return (
-        <form onSubmit={addNewHandler} className="new-company-form">
-            <TextField required id="name" label="Company Name" onChange={inputHandler} />
-            <TextField id="streetName" label="e.g. 5th Avenue 2005" onChange={inputHandler} />
-            <TextField id="city" label="City" onChange={inputHandler} />
-            <TextField id="zipCode" label="Postal code" onChange={inputHandler} />
-            <TextField id="logo" label="e.g. https://kompany.nl/our-logo.png" onChange={inputHandler} />
-            <Button className="search-action" disabled={!company} variant="contained" color="success" disableElevation>
+        <form id="company_form" onSubmit={submitHandler} className="new-company-form">
+            <TextField required id="name" label="Company Name" onChange={inputHandler} value={company?.name} />
+            <TextField id="streetName" label="e.g. 5th Avenue 2005" onChange={inputHandler} value={company?.streetName} />
+            <TextField id="city" label="City" onChange={inputHandler} value={company?.city} />
+            <TextField id="zipCode" label="Postal code" onChange={inputHandler} value={company?.zipCode} />
+            <TextField id="logo" label="e.g. https://kompany.nl/our-logo.png" onChange={inputHandler} value={company?.logo} />
+            <Button type="submit" className="search-action" disabled={!company} variant="contained" color="success" disableElevation>
                 <AddCircle />
                 Add Company
             </Button>
