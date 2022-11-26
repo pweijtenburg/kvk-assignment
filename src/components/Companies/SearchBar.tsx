@@ -1,8 +1,16 @@
-import React, {MouseEventHandler} from "react";
+import React, {MouseEventHandler, SyntheticEvent, useState} from "react";
 import {styled} from '@mui/material/styles';
 import Grid from "@mui/material/Grid";
 import {Autocomplete, Button, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import {throttle} from "lodash-es";
+
+declare global {
+    interface Window {
+        controller: AbortController
+        signal: AbortSignal
+    }
+}
 
 interface Props {
     onSearch?: MouseEventHandler
@@ -24,24 +32,55 @@ const SearchBar = styled(Grid)(({theme}) => ({
     },
     '.search-action': {
         border: '2px solid #aa418c',
-        width: '100%',
     }
 }));
 
 export default ({onSearch}: Props) => {
+    const [list, setList] = useState([]);
+
+    const searchQueryHandler = throttle((event: SyntheticEvent, query: string) => {
+        if (query) {
+            if (window.controller) {
+                window.controller.abort()
+            }
+            window.controller = new AbortController()
+            window.signal = window.controller.signal
+
+            fetch('https://617c09aad842cf001711c200.mockapi.io/v1/companies?search=' + query, {
+                signal: window.signal,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                }
+            })
+                .then(response => response.json())
+                .then(payload => {
+                    const updatedList = payload.data.map((company: Company) => ({
+                        ...company,
+                        id: parseInt(String(company.id), 10),
+                    }))
+                    setList(updatedList);
+                })
+        } else {
+            setList([]);
+        }
+    }, 1000)
+
     return (
         <SearchBar container className="search-input-wrapper" spacing={2}>
             <Grid item xs={8} md={9} lg={10}>
                 <Autocomplete
                     disablePortal
                     id="searchInput"
-                    className="search-input"
-                    options={[]}
+                    options={list}
+                    onInputChange={searchQueryHandler}
+                    getOptionLabel={(company: Company) => company.name}
+                    fullWidth
                     renderInput={(params) => <TextField {...params} label="Type your query" />}
                 />
             </Grid>
             <Grid container item xs={4} md={3} lg={2}>
-                <Button className="search-action" variant="contained" color="secondary" onClick={onSearch} disableElevation>
+                <Button fullWidth className="search-action" variant="contained" color="secondary" onClick={onSearch} disableElevation>
                     <SearchIcon />
                     Search
                 </Button>

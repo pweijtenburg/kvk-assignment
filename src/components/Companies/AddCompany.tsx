@@ -41,10 +41,10 @@ export default ({saveCompany}: Props) => {
                 <Grid item xs={12}>
                     <TextField fullWidth id="streetName" label="e.g. 5th Avenue 2005" onChange={inputHandler} value={company?.streetName} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={4}>
                     <TextField fullWidth id="zipCode" label="Postal code" onChange={inputHandler} value={company?.zipCode} />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={8}>
                     <TextField fullWidth id="city" label="City" onChange={inputHandler} value={company?.city} />
                 </Grid>
                 <Grid item xs={12}>
