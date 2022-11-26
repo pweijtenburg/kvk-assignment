@@ -5,7 +5,10 @@ export function fetchCompanies() {
         return response.json().then(payload => {
             return dispatch({
                 type: actionTypes.FETCH_COMPANIES,
-                companies: JSON.parse(payload)
+                companies: payload.data.map((company: Company) => ({
+                    ...company,
+                    id: parseInt(String(company.id), 10),
+                }))
             })
         })
     })
