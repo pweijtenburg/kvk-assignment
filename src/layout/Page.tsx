@@ -5,7 +5,7 @@ interface Props {
     children?: ReactNode
 }
 
-const DefaultPage = styled('main')(({theme}) => ({
+const Page = styled('main')(({theme}) => ({
     display: 'flex',
     flexFlow: 'column nowrap',
     flex: '1',
@@ -14,8 +14,8 @@ const DefaultPage = styled('main')(({theme}) => ({
 
 export default ({children}: Props) => {
     return (
-        <DefaultPage>
+        <Page>
             {children}
-        </DefaultPage>
+        </Page>
     );
 }

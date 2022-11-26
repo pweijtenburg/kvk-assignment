@@ -10,7 +10,7 @@ type Props = {
     removeCompany: (company: Company) => void
 }
 
-const DefaultSearchListItem = styled(ListItem)(({theme}) => ({
+const SearchListItem = styled(ListItem)(({theme}) => ({
     border: '2px solid #f2f2f2',
 
     '&:first-child ': {
@@ -34,7 +34,7 @@ export default ({company, removeCompany}: Props) => {
     )
 
     return (
-        <DefaultSearchListItem alignItems="flex-start">
+        <SearchListItem alignItems="flex-start">
             <ListItemAvatar>
                 <Avatar src={company.logo} alt={company.name} />
             </ListItemAvatar>
@@ -47,6 +47,6 @@ export default ({company, removeCompany}: Props) => {
                 <RemoveCircle />
                 Delete
             </Button>
-        </DefaultSearchListItem>
+        </SearchListItem>
     )
 }

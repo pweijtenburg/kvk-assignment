@@ -8,7 +8,7 @@ interface Props {
     list: Company[]
 }
 
-const DefaultSearchList = styled(List)(({theme}) => ({
+const SearchList = styled(List)(({theme}) => ({
     listStyle: 'none',
     margin: '1rem 0',
     padding: '0',
@@ -16,13 +16,13 @@ const DefaultSearchList = styled(List)(({theme}) => ({
 
 export default ({list}: Props) => {
     return (
-        <DefaultSearchList>
+        <SearchList>
             {list.map((company: Company) => (
                 <SearchListItem key={company.id}
                                 company={company}
                                 removeCompany={removeCompany}
                 />
             ))}
-        </DefaultSearchList>
+        </SearchList>
     );
 }

@@ -8,7 +8,7 @@ interface Props {
     onSearch?: MouseEventHandler
 }
 
-const DefaultSearchBar = styled(Grid)(({theme}) => ({
+const SearchBar = styled(Grid)(({theme}) => ({
     '.search-input': {
         'fieldset': {
             border: '2px solid #eee',
@@ -30,7 +30,7 @@ const DefaultSearchBar = styled(Grid)(({theme}) => ({
 
 export default ({onSearch}: Props) => {
     return (
-        <DefaultSearchBar container className="search-input-wrapper" spacing={2}>
+        <SearchBar container className="search-input-wrapper" spacing={2}>
             <Grid item xs={8} md={9} lg={10}>
                 <Autocomplete
                     disablePortal
@@ -46,6 +46,6 @@ export default ({onSearch}: Props) => {
                     Search
                 </Button>
             </Grid>
-        </DefaultSearchBar>
+        </SearchBar>
     );
 }

@@ -6,7 +6,7 @@ interface Props {
     children?: ReactNode
 }
 
-const DefaultHeader = styled('header')(({theme}) => ({
+const Header = styled('header')(({theme}) => ({
     display: 'flex',
     flexFlow: 'row nowrap',
     borderBottom: '4px solid #00526e',
@@ -20,9 +20,9 @@ const DefaultHeader = styled('header')(({theme}) => ({
 
 export default ({children}: Props) => {
     return (
-        <DefaultHeader>
+        <Header>
             <Typography className="brand-logo" variant="h6">Kompany</Typography>
             {children}
-        </DefaultHeader>
+        </Header>
     );
 }
