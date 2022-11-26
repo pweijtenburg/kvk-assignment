@@ -12,12 +12,10 @@ const DefaultPage = styled('main')(({theme}) => ({
     margin: '1rem',
 }));
 
-const Page = ({children, ...props}: Props) => {
+export default ({children}: Props) => {
     return (
         <DefaultPage>
             {children}
         </DefaultPage>
     );
 }
-
-export default Page;

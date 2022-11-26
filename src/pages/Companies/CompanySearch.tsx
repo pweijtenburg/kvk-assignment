@@ -14,8 +14,8 @@ const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),
 }));
 
-const CompanySearch = () => {
-    const companies: readonly Company[] = useSelector((state: CompaniesState) => state.companies, shallowEqual)
+export default () => {
+    const companies: Company[] = useSelector((state: CompaniesState) => state.companies, shallowEqual)
 
     const dispatch: Dispatch<any> = useDispatch()
 
@@ -28,17 +28,8 @@ const CompanySearch = () => {
     return (
         <PageContainer>
             <SearchBar />
-            {/*<SearchList list={companies} />*/}
-            {companies.map((company: Company) => (
-                <Company
-                    key={company.id}
-                    company={company}
-                    removeCompany={removeCompany}
-                />
-            ))}
+            <SearchList list={companies} />
             <AddCompany saveCompany={saveCompany} />
         </PageContainer>
     );
 }
-
-export default CompanySearch;

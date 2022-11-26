@@ -9,7 +9,7 @@ type Props = {
     removeCompany: (company: Company) => void
 }
 
-const Company = ({company, removeCompany}: Props) => {
+export default ({company, removeCompany}: Props) => {
     const dispatch: Dispatch<any> = useDispatch()
 
     const deleteHandler = React.useCallback(
@@ -24,12 +24,10 @@ const Company = ({company, removeCompany}: Props) => {
                 <h1>{company.name}</h1>
                 <p>{company.streetName}, {company.zipCode}, {company.city}</p>
             </div>
-            <Button className="search-action" variant="outlined" color="error" onClick={()=>deleteHandler(company)} disableElevation>
+            <Button className="search-action" variant="outlined" color="error" onClick={() => deleteHandler(company)} disableElevation>
                 <RemoveCircle />
                 Delete
             </Button>
         </div>
     )
 }
-
-export default Company

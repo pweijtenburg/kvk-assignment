@@ -9,7 +9,7 @@ const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),
 }));
 
-const PageNotFound = () => {
+export default () => {
     const navigate = useNavigate()
 
     const goBackHandler = (index: number = -1) => {
@@ -26,5 +26,3 @@ const PageNotFound = () => {
         </PageContainer>
     );
 }
-
-export default PageNotFound

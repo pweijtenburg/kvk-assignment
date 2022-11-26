@@ -6,7 +6,7 @@ type Props = {
     saveCompany: (company: Company | any) => void
 }
 
-const AddCompany = ({saveCompany}: Props) => {
+export default ({saveCompany}: Props) => {
     const [company, setCompany] = React.useState<Company | null>(null)
 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -46,5 +46,3 @@ const AddCompany = ({saveCompany}: Props) => {
         </form>
     )
 }
-
-export default AddCompany

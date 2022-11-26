@@ -1,9 +1,11 @@
 import React from "react";
 import {styled} from '@mui/material/styles';
 import SearchListItem from "./SearchListItem";
+import CompanyItem from "./Company";
+import {removeCompany} from "../../store/companies/actions";
 
 interface Props {
-    list: string[]
+    list: Company[]
 }
 
 const DefaultSearchList = styled('ul')(({theme}) => ({
@@ -12,12 +14,17 @@ const DefaultSearchList = styled('ul')(({theme}) => ({
     padding: '0',
 }));
 
-const SearchList = ({list}: Props) => {
+export default ({list}: Props) => {
     return (
         <DefaultSearchList>
-            {list.map(item => <SearchListItem text={item} />)}
+            {list.map((company: Company) => (
+                <SearchListItem key={company.id}>
+                    <CompanyItem
+                        company={company}
+                        removeCompany={removeCompany}
+                    />
+                </SearchListItem>
+            ))}
         </DefaultSearchList>
     );
 }
-
-export default SearchList;

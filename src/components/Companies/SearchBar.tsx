@@ -29,7 +29,7 @@ const DefaultSearchBar = styled(Grid)(({theme}) => ({
     }
 }));
 
-const SearchBar = ({onSearch}: Props) => {
+export default ({onSearch}: Props) => {
     return (
         <DefaultSearchBar container className="search-input-wrapper" spacing={2}>
             <Grid item xs={8} md={9} lg={10}>
@@ -50,5 +50,3 @@ const SearchBar = ({onSearch}: Props) => {
         </DefaultSearchBar>
     );
 }
-
-export default SearchBar;

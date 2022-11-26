@@ -1,8 +1,8 @@
-import React from "react";
+import React, {ReactNode} from "react";
 import {styled} from '@mui/material/styles';
 
 interface Props {
-    text: string
+    children?: ReactNode
 }
 
 const DefaultSearchListItem = styled('li')(({theme}) => ({
@@ -21,12 +21,11 @@ const DefaultSearchListItem = styled('li')(({theme}) => ({
     },
 }));
 
-const SearchListItem = ({text}: Props) => {
+export default ({children}: Props) => {
     return (
         <DefaultSearchListItem>
-            {text}
+            {children}
         </DefaultSearchListItem>
     );
 }
 
-export default SearchListItem;

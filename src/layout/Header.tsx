@@ -18,7 +18,7 @@ const DefaultHeader = styled('header')(({theme}) => ({
     }
 }));
 
-const Header = ({children, ...props}: Props) => {
+export default ({children}: Props) => {
     return (
         <DefaultHeader>
             <Typography className="brand-logo" variant="h6">Kompany</Typography>
@@ -26,5 +26,3 @@ const Header = ({children, ...props}: Props) => {
         </DefaultHeader>
     );
 }
-
-export default Header;
