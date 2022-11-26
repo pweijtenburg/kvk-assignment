@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {ChangeEvent, FormEvent, useState} from "react"
 import {Button, TextField} from "@mui/material";
 import AddCircle from "@mui/icons-material/AddCircle";
 
@@ -7,9 +7,9 @@ type Props = {
 }
 
 export default ({saveCompany}: Props) => {
-    const [company, setCompany] = React.useState<Company | null>(null)
+    const [company, setCompany] = useState<Company | null>(null)
 
-    const inputHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const inputHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCompany({
             id: -1,
             name: "Unnamed company",
@@ -18,7 +18,7 @@ export default ({saveCompany}: Props) => {
         })
     }
 
-    const submitHandler = (e: React.FormEvent) => {
+    const submitHandler = (e: FormEvent) => {
         e.preventDefault()
         saveCompany(company)
         setCompany({

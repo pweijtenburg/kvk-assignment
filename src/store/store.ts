@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, Store} from "redux"
+import {applyMiddleware, createStore, Store} from "redux"
 import thunk from "redux-thunk"
 
 import companyReducer from "./companies/reducer"

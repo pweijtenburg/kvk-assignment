@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {useCallback} from "react"
 import {Dispatch} from "redux"
 import {useDispatch} from "react-redux"
 import {Button} from "@mui/material";
@@ -12,7 +12,7 @@ type Props = {
 export default ({company, removeCompany}: Props) => {
     const dispatch: Dispatch<any> = useDispatch()
 
-    const deleteHandler = React.useCallback(
+    const deleteHandler = useCallback(
         (company: Company) => dispatch(removeCompany(company)),
         [dispatch, removeCompany]
     )
