@@ -49,7 +49,7 @@ const SearchBar = ({onSearch}: Props) => {
                 />
             </Grid>
             <Grid item xs={4} md={3} lg={2}>
-                <Button className="search-action" variant="contained" color="secondary" onClick={onSearch}>
+                <Button className="search-action" variant="contained" color="secondary" onClick={onSearch} disableElevation>
                     <SearchIcon />
                     Search
                 </Button>
