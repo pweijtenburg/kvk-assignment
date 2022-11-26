@@ -1,23 +1,7 @@
 import * as actionTypes from "./actionTypes"
 
 const initialState: CompaniesState = {
-    companies: [{
-        id: 1,
-        name: "Wintheiser Group",
-        city: "West Esteban",
-        zipCode: "97018",
-        streetName: "Lilly View",
-        logo: "https://via.placeholder.com/150",
-        createdAt: "2021-07-16T19:41:28.272Z"
-    }, {
-        id: 2,
-        name: "Feest, Schinner and Lowe",
-        city: "New Ahmad",
-        zipCode: "07811",
-        streetName: "Bartell Tunnel",
-        logo: "https://via.placeholder.com/150",
-        createdAt: "2021-10-03T18:37:01.931Z"
-    }]
+    companies: []
 }
 
 export default (state: CompaniesState = initialState, action: CompanyAction): CompaniesState => {
