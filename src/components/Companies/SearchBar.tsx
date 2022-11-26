@@ -25,7 +25,6 @@ const DefaultSearchBar = styled(Grid)(({theme}) => ({
     '.search-action': {
         border: '2px solid #aa418c',
         width: '100%',
-        height: '100%',
     }
 }));
 
@@ -41,7 +40,7 @@ export default ({onSearch}: Props) => {
                     renderInput={(params) => <TextField {...params} label="Type your query" />}
                 />
             </Grid>
-            <Grid item xs={4} md={3} lg={2}>
+            <Grid container item xs={4} md={3} lg={2}>
                 <Button className="search-action" variant="contained" color="secondary" onClick={onSearch} disableElevation>
                     <SearchIcon />
                     Search
