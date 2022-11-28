@@ -1,11 +1,12 @@
 import React, {ChangeEvent, FormEvent, useState} from "react"
-import {Dispatch} from "redux"
-import {Button, Grid, TextField, Typography} from "@mui/material";
-import AddCircle from "@mui/icons-material/AddCircle";
-import {styled} from "@mui/material/styles";
-import {addCompany} from "../../store/companies/actions";
 import {useDispatch} from "react-redux";
+import {Dispatch} from "redux"
 import {useNavigate} from "react-router-dom";
+import {styled} from "@mui/material/styles";
+import {addCompany} from "../../../store/companies/actions";
+
+import {Button, Grid, TextField, Typography} from "@mui/material";
+import {AddCircle, AddCircleOutline} from "@mui/icons-material";
 
 const Form = styled('form')(({theme}) => ({
     paddingTop: theme.spacing(2),
@@ -45,8 +46,8 @@ export default () => {
     }
 
     return (
-        <Form id="company_form" onSubmit={submitHandler} className="new-company-form">
-            <Typography variant="h5">New Company</Typography>
+        <Form onSubmit={submitHandler}>
+            <Typography variant="h5"><AddCircleOutline /> New Company</Typography>
             <br />
             <Grid container>
                 <Grid item xs={12}>

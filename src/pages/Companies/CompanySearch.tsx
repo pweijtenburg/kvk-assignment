@@ -2,14 +2,16 @@ import React, {ChangeEvent, useEffect, useState} from "react"
 import {Dispatch} from "redux"
 import {shallowEqual, useDispatch, useSelector} from "react-redux"
 import {fetchCompanies} from "../../store/companies/actions"
-import Container from '@mui/material/Container';
 import {styled} from '@mui/material/styles';
+
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+
 import SearchBar from "../../components/Companies/SearchBar";
 import SearchList from "../../components/Companies/SearchList";
-import AddCompany from "../../components/Companies/AddCompany"
+import AddCompany from "../../components/Companies/Forms/CompanyNew"
 import SearchSpinner from "../../components/Companies/SearchSpinner";
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 const PageContainer = styled(Container)(({theme}) => ({
     paddingTop: theme.spacing(2),

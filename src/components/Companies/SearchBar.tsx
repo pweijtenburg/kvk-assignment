@@ -1,9 +1,9 @@
 import React, {MouseEventHandler, SyntheticEvent, useState} from "react";
 import {styled} from '@mui/material/styles';
-import Grid from "@mui/material/Grid";
-import {Autocomplete, Button, TextField} from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
 import {throttle} from "lodash-es";
+
+import {Grid, Autocomplete, Button, TextField} from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
 declare global {
     interface Window {

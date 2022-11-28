@@ -7,8 +7,10 @@ import store from "./store/store";
 import CssBaseline from '@mui/material/CssBaseline';
 import {ThemeProvider} from "styled-components";
 import theme from "./theme/theme";
-import './assests/scss/layout.scss'
+
 import Box from "@mui/material/Box";
+import './assests/scss/layout.scss'
+
 import Header from "./layout/Header";
 import Page from "./layout/Page";
 

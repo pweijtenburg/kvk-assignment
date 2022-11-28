@@ -1,5 +1,6 @@
 import React, {ReactNode} from "react";
 import {styled} from '@mui/material/styles';
+
 import {Typography} from "@mui/material";
 
 interface Props {

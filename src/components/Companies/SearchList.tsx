@@ -1,9 +1,11 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {styled} from '@mui/material/styles';
-import SearchListItem from "./SearchListItem";
 import {removeCompany} from "../../store/companies/actions";
+
 import {List} from "@mui/material";
+
+import SearchListItem from "./SearchListItem";
 
 interface Props {
     list: Company[]

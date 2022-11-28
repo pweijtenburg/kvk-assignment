@@ -1,7 +1,8 @@
 import React from "react";
 import {styled} from '@mui/material/styles';
-import SpinnerIcon from '@mui/icons-material/Cached';
+
 import {Grid, Typography} from "@mui/material";
+import SpinnerIcon from '@mui/icons-material/Cached';
 
 const SearchSpinner = styled(Grid)(({theme}) => ({
     textAlign: 'center',

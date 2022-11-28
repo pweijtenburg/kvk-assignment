@@ -4,7 +4,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 import {useDispatch} from "react-redux"
 import {Button, Grid} from "@mui/material";
 import {removeCompany} from "../../store/companies/actions";
-import SearchSpinner from "./SearchSpinner";
+import SearchSpinner from "../../components/Companies/SearchSpinner";
 import {ArrowBack, RemoveCircle} from "@mui/icons-material";
 
 export default () => {
@@ -15,18 +15,13 @@ export default () => {
 
     const navigate = useNavigate()
 
-    const goBackHandler = (index: number = -1) => {
-        navigate(index)
-        return false
-    };
-
     // One way is to get the company from redux
     // const companies: Company[] = useSelector((state: CompaniesState) => state.companies, shallowEqual)
 
     // BUT for this demo we get it using another API call...
     // Future feature: Add the item to redux...
     useEffect(() => {
-        fetch('https://617c09aad842cf001711c200.mockapi.io/v1/companies/' + params.id)
+        fetch(`https://617c09aad842cf001711c200.mockapi.io/v1/companies/${params.id}`)
             .then(response => response.json())
             .then(payload => setCompany({
                     ...payload.data,
@@ -35,15 +30,20 @@ export default () => {
             )
     }, [])
 
+    // OPTIONAL: This works, except there is a bug when going back it loses its state
     const deleteHandler = useCallback((company: Company) => {
             dispatch(removeCompany(company))
+
             navigate('/companies')
+            // - or -
+            // navigate(-1)
+            // idealy you would want to return keeping al Query parameters like ?page=N
         },
         [dispatch, removeCompany]
     )
 
     return company ? (
-        <div id={`company_${company.id}`} className="company">
+        <div className="company-details">
             <img src={company.logo} alt={company.name} />
             <div>
                 <h1>{company.name}</h1>
@@ -51,7 +51,7 @@ export default () => {
             </div>
             <Grid container>
                 <Grid item xs={6}>
-                    <Button className="back-action" variant="contained" onClick={() => goBackHandler()} disableElevation>
+                    <Button className="back-action" variant="contained" onClick={() => navigate(-1)} disableElevation>
                         <ArrowBack />
                         Back
                     </Button>
