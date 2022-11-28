@@ -5,6 +5,7 @@ import CompanySearch from '../pages/Companies/CompanySearch';
 import PageNotFound from '../pages/PageNotFound';
 import AddCompany from "../components/Companies/AddCompany";
 import CompanyDetail from "../components/Companies/CompanyDetail";
+import CompanyDetailAll from "../components/Companies/CompanyDetailAll";
 
 const router = createBrowserRouter([
     {
@@ -20,12 +21,18 @@ const router = createBrowserRouter([
         path: "/companies/new",
         element: <AddCompany />,
     }, {
+        /*
+         * NOTE: There is a bug that because of fetchCompanies in /companies, the result gets overwritten when coming from /companies/new!
+         */
         path: "/companies/:id",
         element: <CompanyDetail />,
     }, {
-        //     path: "/companies/:id/details",
-        //     element: <CompanyDetail />,
-        // }, {
+        /*
+         * NOTE: There is a bug that because of fetchCompanies in /companies, the result gets overwritten when coming from /companies/new!
+         */
+        path: "/companies/:id/detail",
+        element: <CompanyDetailAll />,
+    }, {
         path: "*",
         element: <PageNotFound />,
     },

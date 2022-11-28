@@ -6,6 +6,9 @@ interface Company {
     streetName?: string
     logo?: string
     createdAt?: string
+    catchPhrase?: string
+    website?: string
+    phoneNumber?: string
 }
 
 type CompaniesState = {

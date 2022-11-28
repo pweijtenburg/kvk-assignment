@@ -19,7 +19,7 @@ export default ({list}: Props) => {
     const navigate = useNavigate();
 
     const navigateCompany = (company: Company) => {
-        navigate(`/companies/${company.id}`);
+        navigate(`/companies/${company.id}/detail`);
     }
 
     return (
