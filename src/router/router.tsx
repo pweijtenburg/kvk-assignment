@@ -1,5 +1,5 @@
 import React from "react";
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import CompanySearch from '../pages/Companies/CompanySearch';
 import PageNotFound from '../pages/PageNotFound';
@@ -8,7 +8,16 @@ import AddCompany from "../components/Companies/AddCompany";
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Navigate to="/companies" replace />,
+    }, {
+        path: "/companies",
         element: <CompanySearch />,
+    }, {
+        /*
+         * NOTE: There is a bug that because of fetchCompanies in /companies, the result gets overwritten when coming from /companies/new!
+         */
+        path: "/companies/new",
+        element: <AddCompany />,
     }, {
         //     path: "/companies/:id",
         //     element: <CompanyDetail />,

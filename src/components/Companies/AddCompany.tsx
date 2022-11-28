@@ -1,20 +1,22 @@
 import React, {ChangeEvent, FormEvent, useState} from "react"
 import {Dispatch} from "redux"
-import {Button, Grid, TextField} from "@mui/material";
+import {Button, Grid, TextField, Typography} from "@mui/material";
 import AddCircle from "@mui/icons-material/AddCircle";
 import {styled} from "@mui/material/styles";
 import {addCompany} from "../../store/companies/actions";
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Form = styled('form')(({theme}) => ({
     paddingTop: theme.spacing(2),
 }));
 
-
 export default () => {
     const [company, setCompany] = useState<Company | null>(null)
 
     const dispatch: Dispatch<any> = useDispatch()
+
+    const navigate = useNavigate();
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCompany({
@@ -38,11 +40,14 @@ export default () => {
                 zipCode: "",
                 createdAt: (new Date).toISOString(),
             })
+            navigate(`/companies`);
         }
     }
 
     return (
         <Form id="company_form" onSubmit={submitHandler} className="new-company-form">
+            <Typography variant="h5">New Company</Typography>
+            <br />
             <Grid container>
                 <Grid item xs={12}>
                     <TextField fullWidth required id="name" label="Company Name" onChange={inputHandler} value={company?.name} />

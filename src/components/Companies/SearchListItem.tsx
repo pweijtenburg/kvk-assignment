@@ -8,10 +8,12 @@ import RemoveCircle from "@mui/icons-material/RemoveCircleOutline";
 type Props = {
     company: Company
     removeCompany: (company: Company) => void
+    onClick: (company: Company) => void
 }
 
 const SearchListItem = styled(ListItem)(({theme}) => ({
     border: '2px solid #f2f2f2',
+    cursor: 'pointer',
 
     '&:first-child ': {
         borderRadius: '4px 4px 0 0',
@@ -25,7 +27,7 @@ const SearchListItem = styled(ListItem)(({theme}) => ({
     },
 }));
 
-export default ({company, removeCompany}: Props) => {
+export default ({company, removeCompany, onClick}: Props) => {
     const dispatch: Dispatch<any> = useDispatch()
 
     const deleteHandler = React.useCallback(
@@ -35,10 +37,10 @@ export default ({company, removeCompany}: Props) => {
 
     return (
         <SearchListItem alignItems="flex-start">
-            <ListItemAvatar>
+            <ListItemAvatar onClick={() => onClick(company)}>
                 <Avatar src={company.logo} alt={company.name} />
             </ListItemAvatar>
-            <ListItemText>
+            <ListItemText onClick={() => onClick(company)}>
                 <strong>{company.name}</strong>
                 <br />
                 <small>{company.streetName}, {company.zipCode}, {company.city}</small>
