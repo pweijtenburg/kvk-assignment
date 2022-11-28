@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from "react"
+import {useDispatch} from "react-redux"
 import {Dispatch} from "redux"
 import {useNavigate, useParams} from 'react-router-dom';
-import {useDispatch} from "react-redux"
 import {Button, Grid} from "@mui/material";
 import {removeCompany} from "../../store/companies/actions";
 import SearchSpinner from "../../components/Companies/SearchSpinner";

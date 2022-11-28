@@ -48,7 +48,7 @@ export default ({company, removeCompany, onClick}: Props) => {
             </ListItemText>
             <Button className="delete-action" variant="outlined" color="error" onClick={() => deleteHandler(company)} disableElevation>
                 <RemoveCircle />
-                Delete
+                <span className="hide-on-mobile">Delete</span>
             </Button>
         </SearchListItem>
     )

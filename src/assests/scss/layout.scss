@@ -8,6 +8,19 @@
   background-color: white;
   margin: 1rem auto;
   box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.1);
+
+  // Adjust app-layout for mobile
+  @media screen and (max-width: 600px) {
+    max-width: calc(100vw - 2rem);
+
+    /**
+     Might also have used MUI method like: sx={{ display: { xs: 'block', md: 'none' }}}
+     But i think this is cleaner for this demo
+     */
+    .hide-on-mobile {
+      display: none !important;
+    }
+  }
 }
 
 @keyframes spin {

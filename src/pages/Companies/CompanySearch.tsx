@@ -1,6 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from "react"
-import {Dispatch} from "redux"
 import {shallowEqual, useDispatch, useSelector} from "react-redux"
+import {Dispatch} from "redux"
+import {useSearchParams} from "react-router-dom";
 import {fetchCompanies} from "../../store/companies/actions"
 import {styled} from '@mui/material/styles';
 
@@ -18,6 +19,10 @@ const PageContainer = styled(Container)(({theme}) => ({
 }));
 
 export default () => {
+    const [searchParams] = useSearchParams(); // Todo
+    // console.log(searchParams.get('sort')); // e.g. for sorting
+    // console.log(searchParams.get('page')); // e.g. for keeping track of paging
+
     const [page, setPage] = useState(1);
     const companies: Company[] = useSelector((state: CompaniesState) => state.companies, shallowEqual)
 

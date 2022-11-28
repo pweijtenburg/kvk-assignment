@@ -3,9 +3,10 @@ import {useDispatch} from "react-redux";
 import {Dispatch} from "redux"
 import {useNavigate} from "react-router-dom";
 import {styled} from "@mui/material/styles";
+import {useTheme} from "styled-components";
 import {addCompany} from "../../../store/companies/actions";
 
-import {Button, Grid, TextField, Typography} from "@mui/material";
+import {Button, Grid, TextField, Typography, useMediaQuery} from "@mui/material";
 import {AddCircle, AddCircleOutline} from "@mui/icons-material";
 
 const Form = styled('form')(({theme}) => ({
@@ -14,10 +15,11 @@ const Form = styled('form')(({theme}) => ({
 
 export default () => {
     const [company, setCompany] = useState<Company | null>(null)
+    const theme = useTheme()
 
     const dispatch: Dispatch<any> = useDispatch()
-
     const navigate = useNavigate();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCompany({
@@ -67,7 +69,7 @@ export default () => {
                 </Grid>
                 <Grid item xs={12}>
                     <br />
-                    <Button type="submit" className="add-action" disabled={!company} variant="contained" color="success" disableElevation>
+                    <Button fullWidth={isMobile} type="submit" className="add-action" disabled={!company} variant="contained" color="success" disableElevation>
                         <AddCircle />
                         Add Company
                     </Button>

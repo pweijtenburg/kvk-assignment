@@ -2,7 +2,7 @@ import React, {MouseEventHandler, SyntheticEvent, useState} from "react";
 import {styled} from '@mui/material/styles';
 import {throttle} from "lodash-es";
 
-import {Grid, Autocomplete, Button, TextField} from "@mui/material";
+import {Autocomplete, Button, Grid, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 declare global {
@@ -82,7 +82,7 @@ export default ({onSearch}: Props) => {
             <Grid container item xs={4} md={3} lg={2}>
                 <Button fullWidth className="search-action" variant="contained" color="secondary" onClick={onSearch} disableElevation>
                     <SearchIcon />
-                    Search
+                    <span className="hide-on-mobile">Search</span>
                 </Button>
             </Grid>
         </SearchBar>
