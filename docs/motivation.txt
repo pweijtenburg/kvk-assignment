@@ -1,6 +1,0 @@
-Motivation for this practice is that i want to showcase the use of a Framework and NPM packages
-The use of custom styling rules to customize a framework
-The use of custom styles through ways of overriding the framework
-The use of custom styles using a SCSS style-sheet
-The different ways to interact with components and ways to structure
-The use of TypeScript syntax as well as semantic HTML and ES6 (both jsx and tsx)
