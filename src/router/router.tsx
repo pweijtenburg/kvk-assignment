@@ -4,6 +4,7 @@ import {createBrowserRouter, Navigate} from "react-router-dom";
 import CompanySearch from '../pages/Companies/CompanySearch';
 import PageNotFound from '../pages/PageNotFound';
 import AddCompany from "../components/Companies/AddCompany";
+import CompanyDetail from "../components/Companies/CompanyDetail";
 
 const router = createBrowserRouter([
     {
@@ -19,9 +20,9 @@ const router = createBrowserRouter([
         path: "/companies/new",
         element: <AddCompany />,
     }, {
-        //     path: "/companies/:id",
-        //     element: <CompanyDetail />,
-        // }, {
+        path: "/companies/:id",
+        element: <CompanyDetail />,
+    }, {
         //     path: "/companies/:id/details",
         //     element: <CompanyDetail />,
         // }, {

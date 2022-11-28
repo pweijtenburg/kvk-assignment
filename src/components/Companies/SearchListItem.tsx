@@ -45,7 +45,7 @@ export default ({company, removeCompany, onClick}: Props) => {
                 <br />
                 <small>{company.streetName}, {company.zipCode}, {company.city}</small>
             </ListItemText>
-            <Button className="search-action" variant="outlined" color="error" onClick={() => deleteHandler(company)} disableElevation>
+            <Button className="delete-action" variant="outlined" color="error" onClick={() => deleteHandler(company)} disableElevation>
                 <RemoveCircle />
                 Delete
             </Button>

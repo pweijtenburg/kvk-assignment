@@ -66,7 +66,7 @@ export default () => {
                 </Grid>
                 <Grid item xs={12}>
                     <br />
-                    <Button type="submit" className="search-action" disabled={!company} variant="contained" color="success" disableElevation>
+                    <Button type="submit" className="add-action" disabled={!company} variant="contained" color="success" disableElevation>
                         <AddCircle />
                         Add Company
                     </Button>

@@ -34,19 +34,25 @@ export default () => {
 
     return (
         <PageContainer>
-            <SearchBar />
-            {companies.length
-                ?
-                <>
-                    <SearchList list={companies.slice((page - 1) * itemsPerPage, page * itemsPerPage)} />
-                    <Stack spacing={2} alignItems="center">
-                        <Pagination count={pages} page={page} variant="outlined" shape="rounded" onChange={paginationHandler} />
-                    </Stack>
-                </>
-                :
-                <SearchSpinner />
-            }
-            <AddCompany />
+            <section>
+                <SearchBar />
+            </section>
+            <section>
+                {companies.length
+                    ?
+                    <>
+                        <SearchList list={companies.slice((page - 1) * itemsPerPage, page * itemsPerPage)} />
+                        <Stack spacing={2} alignItems="center">
+                            <Pagination count={pages} page={page} variant="outlined" shape="rounded" onChange={paginationHandler} />
+                        </Stack>
+                    </>
+                    :
+                    <SearchSpinner />
+                }
+            </section>
+            <section>
+                <AddCompany />
+            </section>
         </PageContainer>
     );
 }
