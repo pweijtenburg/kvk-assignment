@@ -1,19 +1,20 @@
 import React, {ChangeEvent, FormEvent, useState} from "react"
+import {Dispatch} from "redux"
 import {Button, Grid, TextField} from "@mui/material";
 import AddCircle from "@mui/icons-material/AddCircle";
 import {styled} from "@mui/material/styles";
-
-type Props = {
-    saveCompany: (company: Company | any) => void
-}
+import {addCompany} from "../../store/companies/actions";
+import {useDispatch} from "react-redux";
 
 const Form = styled('form')(({theme}) => ({
     paddingTop: theme.spacing(2),
 }));
 
 
-export default ({saveCompany}: Props) => {
+export default () => {
     const [company, setCompany] = useState<Company | null>(null)
+
+    const dispatch: Dispatch<any> = useDispatch()
 
     const inputHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setCompany({
@@ -26,16 +27,18 @@ export default ({saveCompany}: Props) => {
 
     const submitHandler = (e: FormEvent) => {
         e.preventDefault()
-        saveCompany(company)
-        setCompany({
-            city: "",
-            id: -1,
-            logo: "",
-            name: "",
-            streetName: "",
-            zipCode: "",
-            createdAt: (new Date).toISOString(),
-        })
+        if (company) {
+            dispatch(addCompany(company))
+            setCompany({
+                city: "",
+                id: -1,
+                logo: "",
+                name: "",
+                streetName: "",
+                zipCode: "",
+                createdAt: (new Date).toISOString(),
+            })
+        }
     }
 
     return (

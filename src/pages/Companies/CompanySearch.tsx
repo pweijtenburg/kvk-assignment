@@ -1,7 +1,7 @@
-import React, {ChangeEvent, useCallback, useEffect, useState} from "react"
+import React, {ChangeEvent, useEffect, useState} from "react"
 import {Dispatch} from "redux"
 import {shallowEqual, useDispatch, useSelector} from "react-redux"
-import {addCompany, fetchCompanies} from "../../store/companies/actions"
+import {fetchCompanies} from "../../store/companies/actions"
 import Container from '@mui/material/Container';
 import {styled} from '@mui/material/styles';
 import SearchBar from "../../components/Companies/SearchBar";
@@ -32,8 +32,6 @@ export default () => {
         dispatch(fetchCompanies())
     }, [dispatch])
 
-    const saveCompany = useCallback((company: Company) => dispatch(addCompany(company)), [dispatch])
-
     return (
         <PageContainer>
             <SearchBar />
@@ -48,7 +46,7 @@ export default () => {
                 :
                 <SearchSpinner />
             }
-            <AddCompany saveCompany={saveCompany} />
+            <AddCompany />
         </PageContainer>
     );
 }

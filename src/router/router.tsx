@@ -3,6 +3,7 @@ import {createBrowserRouter} from "react-router-dom";
 
 import CompanySearch from '../pages/Companies/CompanySearch';
 import PageNotFound from '../pages/PageNotFound';
+import AddCompany from "../components/Companies/AddCompany";
 
 const router = createBrowserRouter([
     {
