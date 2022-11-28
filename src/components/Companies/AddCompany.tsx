@@ -1,10 +1,16 @@
 import React, {ChangeEvent, FormEvent, useState} from "react"
 import {Button, Grid, TextField} from "@mui/material";
 import AddCircle from "@mui/icons-material/AddCircle";
+import {styled} from "@mui/material/styles";
 
 type Props = {
     saveCompany: (company: Company | any) => void
 }
+
+const Form = styled('form')(({theme}) => ({
+    paddingTop: theme.spacing(2),
+}));
+
 
 export default ({saveCompany}: Props) => {
     const [company, setCompany] = useState<Company | null>(null)
@@ -33,7 +39,7 @@ export default ({saveCompany}: Props) => {
     }
 
     return (
-        <form id="company_form" onSubmit={submitHandler} className="new-company-form">
+        <Form id="company_form" onSubmit={submitHandler} className="new-company-form">
             <Grid container>
                 <Grid item xs={12}>
                     <TextField fullWidth required id="name" label="Company Name" onChange={inputHandler} value={company?.name} />
@@ -58,6 +64,6 @@ export default ({saveCompany}: Props) => {
                     </Button>
                 </Grid>
             </Grid>
-        </form>
+        </Form>
     )
 }
