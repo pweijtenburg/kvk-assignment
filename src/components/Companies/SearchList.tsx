@@ -18,7 +18,7 @@ export default ({list}: Props) => {
     return (
         <SearchList>
             {list.map((company: Company) => (
-                <SearchListItem key={company.id}
+                <SearchListItem key={company.createdAt}
                                 company={company}
                                 removeCompany={removeCompany}
                 />
